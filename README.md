@@ -37,7 +37,7 @@ The **GET verb** is used when you are fetching some information, without modifyi
 
 Simply put, JSON is a convenient way to represent a JavaScript object as a string, so it can be easily transmitted.
 
-* ## Use the .env File
+* ## Use the .env File
 ### The `.env` file is a hidden file that is used to pass environment variables to your application.
 This file is secret, no one but you can access it, and it can be used to store data that you want to keep private or hidden. 
 
