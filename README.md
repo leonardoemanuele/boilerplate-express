@@ -15,7 +15,7 @@ Let’s serve our first string! In Express, routes takes the following structure
   res.send('Response String');
 }`
 
-* ## Serve an HTML File
+* ## Serve an HTML File
 You can respond to requests with a file using the `res.sendFile(path)` method. You can put it inside the `app.get('/', ...)` route handler. Behind the scenes, this method will set the appropriate headers to instruct your browser on how to handle the file you want to send, according to its type. Then it will read and send the file. This method needs an absolute file path. We recommend you to use the Node global variable `__dirname` to calculate the path like this:
 `absolutePath = __dirname + relativePath/file.ext`
 
@@ -71,7 +71,7 @@ Let’s suppose you mounted this function on a route. When a request matches the
 
 As you have seen in challenge 4, to mount a middleware function at root level, you can use the `app.use(<mware-function>)` method. In this case, the function will be executed for all the requests, but you can also set more specific conditions. For example, if you want a function to be executed only for POST requests, you could use `app.post(<mware-function>)`. Analogous methods exist for all the HTTP verbs (GET, DELETE, PUT, …).
 
-* ## Chain Middleware to Create a Time Server
+* ## Chain Middleware to Create a Time Server
 Middleware can be mounted at a specific route using `app.METHOD(path, middlewareFunction)`. Middleware can also be chained within a route definition.
 Look at the following example:
 `
@@ -95,7 +95,7 @@ actual_request_URL: '/user/546/book/6754'
 req.params: {userId: '546', bookId: '6754'}
 `
 
-* ## Get Query Parameter Input from the Client
+* ## Get Query Parameter Input from the Client
 Another common way to get input from the client is by encoding the data after the route path, using a query string. The query string is delimited by a question mark (?), and includes `field=value` couples.
 Each couple is separated by an ampersand (&). Express can parse the data from the query string, and populate the object `req.query`.
 
@@ -107,7 +107,7 @@ actual_request_URL: '/library?userId=546&bookId=6754'
 req.query: {userId: '546', bookId: '6754'}
 `
 
-* ## Use body-parser to Parse POST Requests
+* ## Use body-parser to Parse POST Requests
 Besides GET, there is another common HTTP verb, it is POST. POST is the default method used to send client data with HTML forms. 
 
 In REST convention, POST is used to send data to create new items in the database (a new user, or a new blog post). You don’t have a database in this project, but you are going to learn how to handle POST requests anyway.
@@ -132,7 +132,7 @@ Note: `extended` is a configuration option that tells `body-parser` which parsin
 
 When using `extended=false`, values can be only strings or arrays. The object returned when using `querystring` does not prototypically inherit from the default JavaScript Object, which means functions like `hasOwnProperty`, `toString` will not be available. The extended version allows more data flexibility, but it is outmatched by JSON.
 
-* ## Get Data from POST Requests
+* ## Get Data from POST Requests
 Mount a POST handler at the path `/name`. It’s the same path as before. We have prepared a form in the html frontpage. It will submit the same data of exercise 10 (Query string). If the `body-parser` is configured correctly, you should find the parameters in the object `req.body`. Have a look at the usual library example:
 `
 route: POST '/library'
