@@ -21,7 +21,7 @@ You can respond to requests with a file using the `res.sendFile(path)` method. Y
 
 Send the `/views/index.html` file as a response to GET requests to the `/` path. If you view your live app, you should see a big HTML heading (and a form that we will use later…), with no style applied.
 
-* ## Serve Static Assets
+* ## Serve Static Assets
 An HTML server usually has one or more directories that are accessible by the user. You can place there the static assets needed by your application (stylesheets, scripts, images).
 
 In Express, you can put in place this functionality using the middleware `express.static(path)`, where the path parameter is the absolute path of the folder containing the assets.
@@ -48,7 +48,7 @@ The environment variables are accessible from the app as `process.env.VAR_NAME`.
 The `process.env` object is a global Node object, and variables are passed as strings. By convention, **the variable names are all uppercase, with words separated by an underscore**. 
 The `.env` is a shell file, so you don’t need to wrap names or values in quotes. It is also important to note that **there cannot be space around the equals sign when you are assigning values to your variables, e.g. `VAR_NAME=value`.** Usually, you will put each variable definition on a separate line.
 
-* ## Implement a Root-Level Request Logger Middleware
+* ## Implement a Root-Level Request Logger Middleware
 Earlier, you were introduced to the `express.static()` middleware function. Now it’s time to see what middleware is, in more detail.
 
 **Middleware functions are functions that take 3 arguments:** 
@@ -84,7 +84,7 @@ app.get('/user', function(req, res, next) {
 `
 This approach is useful to split the server operations into smaller units. That leads to a better app structure, and the possibility to reuse code in different places. This approach can also be used to perform some validation on the data. At each point of the middleware stack you can block the execution of the current chain and pass control to functions specifically designed to handle errors. Or you can pass control to the next matching route, to handle special cases. We will see how in the advanced Express section.
 
-* ## Get Route Parameter Input from the Client
+* ## Get Route Parameter Input from the Client
 When building an API, we have to allow users to communicate to us what they want to get from our service. For example, if the client is requesting information about a user stored in the database, they need a way to let us know which user they're interested in.
 
 One possible way to achieve this result is by using route parameters. **Route parameters** are named segments of the URL, delimited by slashes (/). Each segment captures the value of the part of the URL which matches its position. The captured values can be found in the `req.params` object.
